@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Screens/challenge_screen.dart';
 import 'package:flutter_application_1/Screens/dashboard_screen.dart';
 import 'package:flutter_application_1/Screens/login_screen.dart';
 
@@ -11,9 +12,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
+      theme: ThemeData.dark(),
       home: const LoginScreen(),
       routes: {
-        "/dash" : (context) => const DashboardScreen()
+        "/dash" : (context) => const DashboardScreen(),
+        "/reto" : (context) => const ChallengeScreen(),
       },
     );
   }
