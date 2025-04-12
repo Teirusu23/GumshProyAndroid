@@ -23,7 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
         decoration: const BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,
-            image: AssetImage('ProyectFlutter/assets/SonicCD.jpg')
+            image: AssetImage('SonicCD.jpg')
           )
         ),
         child: Stack(
@@ -32,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
           children: [
             Positioned(
               top: 100,
-              child: Image.asset('ProyectFlutter/assets/CDLogo.png', width: 350,)
+              child: Image.asset('CDLogo.png', width: 350,)
             ),
             Positioned(
               bottom: 250,
@@ -70,6 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
             Positioned(
               top: 660,
               child: InkWell(
+            
                 onTap: (){
                   isLoading = true;
                   setState(() { });
@@ -78,13 +79,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   },); //hilo
                 },
 
-                child: Lottie.asset('ProyectFlutter/assets/boton.json', width: 220)
+                child: Lottie.asset('boton.json', width: 220)
               )
             ),
             Positioned(
               top: 250,
               child: isLoading 
-                ? Image.asset("ProyectFlutter/assets/loading.gif", height: 400,) 
+                ? Image.asset("loading.gif", height: 400,) 
                 : Container()
             )
           ],
