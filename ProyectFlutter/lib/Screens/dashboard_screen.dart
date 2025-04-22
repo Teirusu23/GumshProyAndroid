@@ -13,7 +13,8 @@ class DashboardScreen extends StatelessWidget {
         headerBuilder: (context, extended) {
           return const UserAccountsDrawerHeader(
           currentAccountPicture: CircleAvatar(
-            backgroundImage: NetworkImage("https://drive.google.com/file/d/1I24RlaYArzp5OnWd1b3LT0yVPIvvcuBJ/view?usp=drive_link"),
+            //backgroundImage: NetworkImage("https://drive.google.com/file/d/1I24RlaYArzp5OnWd1b3LT0yVPIvvcuBJ/view?usp=drive_link"),
+            backgroundImage: AssetImage("Otto.png"),
           ),
           accountName: Text("Teirusu"), 
           accountEmail: Text("Gumshoe te Amo")
