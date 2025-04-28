@@ -35,7 +35,7 @@ class MyHomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Image.asset('menu.png'),
-                    Text('Besom.', style: TextStyle(fontSize: 32, fontWeight: FontWeight.w800)),
+                    Text('Juegiux.', style: TextStyle(fontSize: 32, fontWeight: FontWeight.w800)),
                     Image.asset('bag.png')
                   ],
                 ),
