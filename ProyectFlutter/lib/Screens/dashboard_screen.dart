@@ -31,7 +31,14 @@ class DashboardScreen extends StatelessWidget {
               Navigator.pushNamed(context, '/reto');
             },
             icon: Icons.home, label: 'Challenge App'
-          )
+          ),
+          SidebarXItem(
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/api');
+            },
+            icon: Icons.network_cell, label: 'Api'
+          ),
         ],
       ),
       appBar: AppBar(
@@ -49,13 +56,13 @@ class DashboardScreen extends StatelessWidget {
             icon: const Icon(Icons.light_mode)
           ),
           HawkFabMenuItem(
-            label: 'Theme Light', 
+            label: 'Theme Dark', 
             ontap: () => GlobalValues.themeMode.value = 0, 
             icon: const Icon(Icons.dark_mode)
           ),
            HawkFabMenuItem(
             label: 'Theme Warm', 
-            ontap: () => GlobalValues.themeMode.value = 0, 
+            ontap: () => GlobalValues.themeMode.value = 2, 
             icon: const Icon(Icons.dark_mode)
            )
         ]

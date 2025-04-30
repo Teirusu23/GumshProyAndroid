@@ -1,19 +1,4 @@
 class PopularModel {
-  int page;
-  List<Result> results;
-  int totalPages;
-  int totalResults;
-
-  PopularModel({
-    required this.page,
-    required this.results,
-    required this.totalPages,
-    required this.totalResults,
-  });
-
-}
-
-class Result {
   String backdropPath;
   int id;
   OriginalLanguage originalLanguage;
@@ -27,8 +12,8 @@ class Result {
   double voteAverage;
   int voteCount;
 
-  Result({
-    required this.backdropPath,
+  PopularModel({
+    required this.backdropPath,  //Qué indican las llaves. Indican que los parametros son nombrados, no son posicionales.
     required this.id,
     required this.originalLanguage,
     required this.originalTitle,
@@ -42,6 +27,22 @@ class Result {
     required this.voteCount,
   });
 
+  factory
+  PopularModel.fromMap(Map<String,dynamic> movie){
+    return PopularModel(
+      backdropPath: movie["background_path"] ?? '', 
+      id: movie["id"], 
+      originalLanguage: movie["original_language"], 
+      originalTitle: movie["original_title"], 
+      overview: movie["overview"], 
+      popularity: movie["popularity"], 
+      posterPath: movie["posterPath"], 
+      releaseDate: movie["releaseDate"], 
+      title: movie["title"], 
+      video: movie["video"], 
+      voteAverage: movie['vote_avarage'], 
+      voteCount: movie["voteCount"]);
+  }
 }
 
 enum OriginalLanguage {
