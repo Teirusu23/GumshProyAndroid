@@ -6,7 +6,7 @@ class PopularModel {
   String overview;
   double popularity;
   String posterPath;
-  DateTime releaseDate;
+  String releaseDate;
   String title;
   bool video;
   double voteAverage;
@@ -30,7 +30,8 @@ class PopularModel {
   factory
   PopularModel.fromMap(Map<String,dynamic> movie){
     return PopularModel(
-      backdropPath: movie["background_path"] ?? '', 
+      backdropPath: "https://image.tmdb.org/t/p/w500/${movie["background_path"]}" 
+      ?? 'https://support.microsoft.com/images/en-us/9b313b0b-ea7c-400a-92cb-f725d84c83ba', 
       id: movie["id"], 
       originalLanguage: movie["original_language"], 
       originalTitle: movie["original_title"], 

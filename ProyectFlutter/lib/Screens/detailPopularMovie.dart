@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart'; //statefulW = pone toda la cosa
+import 'package:flutter/material.dart';
+import 'package:flutter_application_1/models/popular_model.dart'; //statefulW = pone toda la cosa
 
 class DetailPopularMovie extends StatefulWidget {
   const DetailPopularMovie({super.key});
@@ -10,6 +11,8 @@ class DetailPopularMovie extends StatefulWidget {
 class _DetailPopularMovie extends State<DetailPopularMovie> {
   @override
   Widget build(BuildContext context) {
+    final popular = ModalRoute.of(context)!.settings.arguments as PopularModel;
+    
     return Container();
   }
 }
