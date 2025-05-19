@@ -7,7 +7,7 @@ class ApiPopular {
 
   //datos a traves de peticion get - http
 
-  Future<List<void>> getPopularMovies() async{
+  Future<List<PopularModel>> getPopularMovies() async{
     final dio = Dio();
     final response = await dio.get(URL);
     final res = response.data["results"] as List;

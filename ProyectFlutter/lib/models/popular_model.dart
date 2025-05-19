@@ -1,7 +1,7 @@
 class PopularModel {
   String backdropPath;
   int id;
-  OriginalLanguage originalLanguage;
+  String originalLanguage;
   String originalTitle;
   String overview;
   double popularity;
@@ -30,8 +30,8 @@ class PopularModel {
   factory
   PopularModel.fromMap(Map<String,dynamic> movie){
     return PopularModel(
-      backdropPath: "https://image.tmdb.org/t/p/w500/${movie["background_path"]}" 
-      ?? 'https://support.microsoft.com/images/en-us/9b313b0b-ea7c-400a-92cb-f725d84c83ba', 
+      backdropPath: 'https://image.tmdb.org/t/p/w500/${movie['backdrop_path']}' 
+      ?? 'https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg', 
       id: movie["id"], 
       originalLanguage: movie["original_language"], 
       originalTitle: movie["original_title"], 
@@ -44,9 +44,4 @@ class PopularModel {
       voteAverage: movie['vote_avarage'], 
       voteCount: movie["voteCount"]);
   }
-}
-
-enum OriginalLanguage {
-  EN,
-  JA
 }

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/popular_model.dart';
 import 'package:flutter_application_1/network/api_popular.dart';
 
-class PopularScreen extends StatefulWidget{
+class PopularScreen extends StatefulWidget {
   const PopularScreen({super.key});
 
-@override
+  @override
   State<PopularScreen> createState() => _PopularScreenState();
 }
 
@@ -14,38 +14,37 @@ class _PopularScreenState extends State<PopularScreen> {
   ApiPopular? apiPopular;
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
     apiPopular = ApiPopular();
+    //apiPopular!.getPopularMovies();
   }
-
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(), //Builer = retorna un widget
+      appBar: AppBar(),
       body: FutureBuilder(
         future: apiPopular!.getPopularMovies(), 
-        builder: (context,snapshot) { //ListView.builder cuando no se saben los elementos de la lista. Sin builder, sí se sabe cuantos
+        builder: (context, snapshot) {
           if(snapshot.hasData){
             return ListView.separated(
-              padding: EdgeInsets.symmetric(horizontal: 10,),
-              separatorBuilder: (context,index) => SizedBox(height: 10,),
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              separatorBuilder: (context, index) => SizedBox(height: 10,),
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
                 return ItemPopular(snapshot.data![index]);
               },
             );
           }else{
-            if(snapshot.hasError){
+            if( snapshot.hasError ){
               return Center(child: Text(snapshot.error.toString()),);
             }else{
               return Center(child: CircularProgressIndicator(),);
             }
           }
-        }
-        ),
+        },
+      ),
     );
   }
 
@@ -56,19 +55,19 @@ class _PopularScreenState extends State<PopularScreen> {
         alignment: Alignment.bottomLeft,
         children: [
           FadeInImage(
-            placeholder: AssetImage("load.gif"), 
-            image: NetworkImage(popular.backdropPath)
-            ),
-            Container(
-              height: 70,
-              width: MediaQuery.of(context).size.width,
-              color: Colors.black,
-              child: ListTile(
-                onTap: () => Navigator.pushNamed(context, "/detail",arguments: popular),
+            placeholder: AssetImage('assets/loading.gif'), 
+            image:  NetworkImage(popular.backdropPath)
+          ),
+          Container(
+            height: 70,
+            width: MediaQuery.of(context).size.width,
+            color: Colors.black,
+            child: ListTile(
+              onTap: ()=>Navigator.pushNamed(context,'/detail',arguments: popular),
               title: Text(popular.title, style: TextStyle(color: Colors.white),),
-              trailing: Icon(Icons.chevron_right,size: 30,),
-              ),
-            )
+              trailing: Icon(Icons.chevron_right, size: 30,),
+            ),
+          )
         ],
       ),
     );
